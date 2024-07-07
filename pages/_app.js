@@ -6,22 +6,22 @@ import Link from "next/link"
 import "./_app.css"
 
 export default function App({ Component, pageProps }) {
-  const { isLoaded, isSignedIn } = useSession()
-  useAuthRedirect(pageProps)
+    const { isLoaded, isSignedIn } = useSession()
+    useAuthRedirect(pageProps)
 
-  return isLoaded && (
-      <>
-        <Header>
-          <Link href="/">
-            blog
-          </Link>
+    return isLoaded && (
+        <>
+            <Header>
+                <Link href="/">
+                    röster.ch
+                </Link>
 
-          <Navigation />
-        </Header>
+                <Navigation />
+            </Header>
 
-        <main className="page">
-          { (!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}
-        </main>
-      </>
-  )
+            <main className="page">
+                { (!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}
+            </main>
+        </>
+    )
 }

@@ -7,7 +7,7 @@ import styles from "./Navigation.module.css"
 export default function Navigation() {
     const { session, signOut } = useSession()
     const [isOpen, setIsOpen] = useState(false)
-    const user = session.user
+    const email = session.email
     const router = useRouter()
 
     useEffect(() => setIsOpen(false), [router.pathname])
@@ -25,20 +25,20 @@ export default function Navigation() {
 
             <ul className={isOpen ? styles.open : ""}>
 
-                {!user && <li key="login"><Link href="/login">Login</Link></li>}
+                {!email && <li key="login"><Link href="/login">Login</Link></li>}
 
                 {
-                    user && <>
-                        <li key="create"><Link href="/posts/create">Create new post</Link></li>
+                    email && <>
+                        <li key="create"><Link href="/events">Events</Link></li>
 
-                        <li key="name">
+                        <li key="profile">
                             <Link href="/profile">
-                                {user.name}
+                                Profile
                             </Link>
 
                         </li>
 
-                        <li key={user.name}>
+                        <li key="logout">
                             <a href="" className={styles.logout} onClick={handleClick}>
                                 Logout
                             </a>
