@@ -7,13 +7,13 @@
     display: flex;
     background-color: black;
     z-index: 99;
-    font-family: "Cheddar", sans-serif;
     justify-content: center;
 }
 
 .header > a {
     color: white !important;
     font-size: 4em;
+    font-weight: normal;
 }
 
 .header > a:hover {

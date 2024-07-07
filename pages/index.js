@@ -30,13 +30,16 @@ export default function IndexPage() {
     const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 
     return (
-        <>
+        data.events && <>
             {
 
-                data.events && data.events.length > 0 ?
-                    <>
-                        <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p><p> {formatDate(data.events[0].date)}</p><p>{data.events[0].amountLeft} kg übrig</p></> :
-                    <p>zurzeit sind keine events geplant.</p>
+                data.events.length > 0 ?
+                    <article>
+                        <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
+                        <p> {formatDate(data.events[0].date)}</p><p>{data.events[0].amountLeft} kg übrig</p>
+                        <button className={styles.button}>join</button>
+                    </article> :
+                    <p>zurzeit sind keine röstungen geplant.</p>
 
             }
         </>

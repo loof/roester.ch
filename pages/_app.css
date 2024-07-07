@@ -12,14 +12,14 @@
     text-align: center;
 }
 
-h1, h2, p {
-    font-family: 'Cheddar', sans-serif;
+h1, h2 {
     color: #E939B4;
-    font-size: 4em;
+    font-size: 3em;
     font-weight: normal;
 }
 
 p {
     color: white;
     margin-top: 1em;
+    font-size: 3em;
 }

@@ -2,6 +2,20 @@
     color: #E939B4;
 }
 
+.button {
+    background-color: #E939B4;
+    border: none;
+    color: white;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3em;
+    margin: 2em;
+    font-family: Cheddar, sans-serif;
+    border-radius: 0.4em;
+}
+
 /*
 .events {
     display: flex;
