@@ -1,5 +1,16 @@
 .accent {
     color: #E939B4;
+    font-size: 1.5em;
+}
+
+.date {
+    font-size: 4em;
+    margin-top: 0.4em;
+}
+
+.amountLeft {
+    font-size: 2.5em;
+    margin-top: 0.9em;
 }
 
 .button {

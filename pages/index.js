@@ -36,7 +36,7 @@ export default function IndexPage() {
                 data.events.length > 0 ?
                     <article>
                         <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
-                        <p> {formatDate(data.events[0].date)}</p><p>{data.events[0].amountLeft} kg übrig</p>
+                        <p className={styles.date}> {formatDate(data.events[0].date)}</p><p className={styles.amountLeft}>{data.events[0].amountLeft} kg übrig</p>
                         <button className={styles.button}>join</button>
                     </article> :
                     <p>zurzeit sind keine röstungen geplant.</p>
