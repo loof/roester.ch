@@ -1,0 +1,31 @@
+.events {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.events h1,
+.events h2 {
+    margin: 0.5em 0 0.5em 0;
+}
+
+.events a {
+    align-self: flex-end;
+}
+
+.events ul {
+    list-style-type: none;
+}
+
+.event article > a {
+    color: blue;
+    margin-left: auto;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.date {
+    color: blue;
+    font-size: 0.75em;
+    margin-left: 0.5em;
+}
