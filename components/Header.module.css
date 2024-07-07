@@ -2,17 +2,18 @@
     position: sticky;
     top: 0;
     width: 100%;
-    padding: 0.5em;
+    padding: 2em;
     box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);
     display: flex;
-    background-color: white;
-    z-index: 99
+    background-color: black;
+    z-index: 99;
+    font-family: "Cheddar", sans-serif;
+    justify-content: center;
 }
 
 .header > a {
-    color: black !important;
-    font-weight: bold;
-    font-size: 2em;
+    color: white !important;
+    font-size: 4em;
 }
 
 .header > a:hover {

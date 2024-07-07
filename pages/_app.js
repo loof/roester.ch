@@ -3,7 +3,9 @@ import Navigation from "@/components/Navigation"
 import { useSession } from "@/lib/hooks/session"
 import { useAuthRedirect } from "@/lib/hooks/authredirect"
 import Link from "next/link"
+import "../styles/globals.css"
 import "./_app.css"
+
 
 export default function App({ Component, pageProps }) {
     const { isLoaded, isSignedIn } = useSession()
@@ -16,10 +18,10 @@ export default function App({ Component, pageProps }) {
                     röster.ch
                 </Link>
 
-                <Navigation />
+
             </Header>
 
-            <main className="page">
+            <main className={`page`}>
                 { (!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}
             </main>
         </>
