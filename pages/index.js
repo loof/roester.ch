@@ -8,6 +8,7 @@ import {useSession} from "@/lib/hooks/session";
 export default function IndexPage() {
     const [data, setData] = useState({})
     const {session, isLoaded} = useSession()
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         const loadNextEvent = async () => {
@@ -21,6 +22,11 @@ export default function IndexPage() {
         loadNextEvent()
     }, [])
 
+    useEffect(() => {
+        if (!data) return;
+        setLoading(false)
+    }, [data]);
+
 
     const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
     const firstDate = new Date(data.id ? data.date : null);
@@ -29,18 +35,18 @@ export default function IndexPage() {
     const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 
     return (
-         <>
-            {
+        <>
+            {isLoading === false && data.id && data.id > 0 &&
+                <article>
+                    <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
+                    <p className={styles.date}> {formatDate(data.date)}</p><p
+                    className={styles.amountLeft}>{data.amountLeft} kg übrig</p>
+                    <button className={styles.button}>join</button>
+                </article>}
 
-                data.id ?
-                    <article>
-                        <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
-                        <p className={styles.date}> {formatDate(data.date)}</p><p className={styles.amountLeft}>{data.amountLeft} kg übrig</p>
-                        <button className={styles.button}>join</button>
-                    </article> :
-                    <p>zurzeit sind keine röstungen geplant.</p>
+            {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}
 
-            }
+            {isLoading === true && <p>Loading...</p>}
         </>
     )
 }
