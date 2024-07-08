@@ -85,13 +85,13 @@ export default function LoginPage() {
 
             <form onSubmit={handleSubmit} className={styles.loginform}>
                 <fieldset>
-                    <label>Email:</label>
+                    <label>e-mail</label>
                     <input type="text" name="email" onChange={handleChange} value={model.email} autoComplete="email" required />
                     {errors.email && <div className={styles.error}>{errors.email}</div>}
                 </fieldset>
 
                 <fieldset>
-                    <label>Password:</label>
+                    <label>passwort</label>
                     <input type="password" name="password" onChange={handleChange} value={model.password} autoComplete="current-password" required />
                     {errors.password && <div className={styles.error}>{errors.password}</div>}
                 </fieldset>

@@ -25,15 +25,15 @@ export default function Navigation() {
 
             <ul className={isOpen ? styles.open : ""}>
 
-                {!email && <li key="login"><Link href="/login">Login</Link></li>}
+                {!email && <li key="login"><Link href="/login">login</Link></li>}
 
                 {
                     email && <>
-                        <li key="create"><Link href="/events">Events</Link></li>
+                        <li key="create"><Link href="/">nächste röstung</Link></li>
 
                         <li key="profile">
                             <Link href="/profile">
-                                Profile
+                                profil
                             </Link>
 
                         </li>

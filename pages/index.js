@@ -23,7 +23,7 @@ export default function IndexPage() {
     }, [])
 
     useEffect(() => {
-        if (!data) return;
+        if (!data.id) return;
         setLoading(false)
     }, [data]);
 
@@ -40,7 +40,7 @@ export default function IndexPage() {
                 <article>
                     <h2>nächste röstung</h2> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
                     <p className={styles.date}> {formatDate(data.date)}</p><p
-                    className={styles.amountLeft}>{data.amountLeft} kg übrig</p>
+                    className={styles.amountLeft}>{data.amountLeft} kg verfügbar</p>
                     <button className={styles.button}>join</button>
                 </article>}
 

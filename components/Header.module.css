@@ -4,10 +4,11 @@
     width: 100%;
     padding: 2em;
     box-shadow: 0 1px 6px 0 rgb(0 0 0 / 20%);
-    display: flex;
     background-color: black;
     z-index: 99;
     justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .header > a {

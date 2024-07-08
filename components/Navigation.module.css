@@ -1,8 +1,9 @@
 .navigation {
     display: flex;
     flex-direction: column;
+    grid-column: 2;
+    font-size: 1.5em;
 }
-
 
 .navigation {
     width: 100%;
@@ -18,6 +19,7 @@
 .open {
     display: flex !important;
     justify-content: center;
+    background-color: #E939B4;
 }
 
 @media only screen and (min-width: 320px) {
