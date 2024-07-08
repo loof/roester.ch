@@ -32,7 +32,6 @@ function validateModel(model) {
 export default function LoginPage() {
     const { session, signIn } = useSession()
     const router = useRouter()
-
     const [errors, setErrors] = useState(defaultModel)
     const [isLoading, setIsLoading] = useState(false)
     const [model, setModel] = useState(defaultModel)
@@ -80,7 +79,7 @@ export default function LoginPage() {
 
     return session.user ? null : (
         <div className={styles.login}>
-            <h1>Login (adamadmin@blog.ch // admin1234)</h1>
+            <h1>Login</h1>
 
             {errors.login && <h2 className={styles.error}>{errors.login}</h2>}
 
@@ -105,4 +104,12 @@ export default function LoginPage() {
             </form>
         </div>
     )
+}
+
+export async function getStaticProps(context) {
+    return {
+        props: {
+            secured: false
+        }
+    }
 }

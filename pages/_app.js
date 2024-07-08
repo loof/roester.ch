@@ -13,13 +13,13 @@ export default function App({ Component, pageProps }) {
 
     return isLoaded && (
         <>
-            <Header>
+            {<Header>
                 <Link href="/">
                     röster.ch
                 </Link>
 
 
-            </Header>
+            </Header>}
 
             <main className={`page`}>
                 { (!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}

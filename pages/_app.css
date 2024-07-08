@@ -8,22 +8,3 @@
 }
 
 
-.page {
-    text-align: center;
-}
-
-h1, h2 {
-    color: #E939B4;
-    font-size: 3em;
-    font-weight: normal;
-}
-
-h2 {
-    margin-top: 0.5em;
-}
-
-p {
-    color: white;
-    margin-top: 0.7em;
-    font-size: 3em;
-}
