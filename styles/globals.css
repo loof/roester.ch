@@ -120,11 +120,6 @@ nav button object {
 
 }
 
-
-nav .logo {
-  height: 1.5rem;
-}
-
 #nav-home {
   text-align: center;
   grid-row-start: 1;
@@ -165,7 +160,6 @@ hidden by default, visible when #header.menu-expanded */
   height: 100%;
   background: black;
   z-index: 10;
-  padding: 0.5rem;
 }
 
 .navmenu {
@@ -202,11 +196,7 @@ hidden by default, visible when #header.menu-expanded */
 
 main {
   font-size: 1.5rem;
-}
-
-.accent {
-  color: #E939B4;
-  font-size: 2rem;
+  margin-top: 1rem;
 }
 
 #amount-left {
@@ -260,10 +250,6 @@ body > footer > div {
   display: inline-block;
 }
 
-#social object {
-  height: 1rem;
-  color: #1B378E;
-}
 
 /* Now for large screens
     General */
@@ -365,9 +351,6 @@ body > footer > div {
 }
 
 @media only screen and (min-width: 1440px) {
-  :root {
-    font-size: 30px;
-  }
 
   body>div {
     grid-template-columns:  [start] 20vw [content-start] auto [content-end] 20vw [end];
