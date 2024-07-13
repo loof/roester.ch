@@ -20,18 +20,15 @@
 }
 
 body {
-  display: flex;
-  align-items: center;
   font-size: 0.6rem;
   min-height: 100vh;
-  position: relative;
   font-family: 'Cheddar', sans-serif;
   font-weight: normal;
   background-color: black;
   text-transform: lowercase;
   color: white;
-  padding: 0.5rem;
 }
+
 
 
 img {
@@ -92,9 +89,10 @@ body > footer {
 nav {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  padding-top: 0.5rem;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
+  padding: 50px;
 }
 
 nav a {
@@ -109,9 +107,9 @@ nav a.active {
 }
 
 nav > div.buttons {
-  padding-left: 1.5rem;
   grid-row-start: 1;
-  grid-column-start: 1
+  grid-column-start: 1;
+  display: grid;
 }
 
 nav button object {
@@ -127,7 +125,12 @@ nav button object {
 
 }
 
-#menu-icon, #close-menu-icon {
+#close-menu-icon {
+  width: 32px;
+  height: 32px;
+}
+
+#menu-icon{
   width: 32px;
   height: 32px;
 }
@@ -148,23 +151,33 @@ nav #nav-x {
 }
 
 nav #nav-hamburger {
-  display: inherit;
+  display: grid;
 }
 
 /* Nav menu overlay
 hidden by default, visible when #header.menu-expanded */
 
 .menu-expanded {
-  position: fixed;
   width: 100%;
   height: 100%;
   background: black;
   z-index: 10;
+
 }
 
 .navmenu {
-  display: none;
+  position: fixed;
+  width: 100%;
+  left: -100%;
+  top: 3rem;
   grid-area: 2 / 1 / 2 / 4;
+  transition: left 0.3s ease-in-out;
+  will-change: left;
+  overflow: hidden;
+}
+
+.menu-expanded .navmenu {
+  left: 0;
 }
 
 .menu-expanded .navmenu {
@@ -178,14 +191,14 @@ hidden by default, visible when #header.menu-expanded */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2.5rem;
+  padding-top: 2.157rem;
 
 }
 
 .navmenu ul li a {
   display: block;
   padding: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
 /* Content */
@@ -196,7 +209,6 @@ hidden by default, visible when #header.menu-expanded */
 
 main {
   font-size: 1.5rem;
-  margin-top: 1rem;
 }
 
 #amount-left {
@@ -313,6 +325,8 @@ body > footer > div {
   }
 
   .navmenu {
+    position: absolute;
+    right: -100%;
     display: inherit;
     grid-row: 1 / 1;
     grid-column: center / right;
@@ -347,6 +361,10 @@ body > footer > div {
     grid-column: center / content-end;
     justify-self: right;
 
+  }
+
+  .buttons {
+    display: none!important;
   }
 }
 
