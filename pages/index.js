@@ -42,10 +42,10 @@ export default function IndexPage() {
 
                         <article>
                             <h1>nächste röstung</h1> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
-                            <p className="date">
+                            <p className={styles.date}>
                                 <time dateTime="2024-09-14">{formatDate(data.date)}</time>
                             </p>
-                            <p className="amount-left">{data.amountLeft} kg vorrat</p>
+                            <p className={styles.amountLeft}>{data.amountLeft} kg vorrat</p>
                         </article>
                         <button className={styles.join}>join</button>
                     </>}
