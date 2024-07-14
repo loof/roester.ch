@@ -1,0 +1,100 @@
+.nav {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    grid-area: header;
+    z-index: 1;
+}
+
+.nav a {
+    color: white;
+    font-family: Cheddar, sans-serif;
+    font-size: 1.5rem;
+    overflow: hidden;
+}
+
+.nav a.active {
+    color: #E939B4;
+}
+
+.nav > div.buttons {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    display: grid;
+}
+
+.navHome {
+    text-align: center;
+    grid-row-start: 1;
+    grid-column-start: 2
+}
+
+.nav .navX {
+    display: none;
+}
+
+.closeMenuIcon {
+    width: 32px;
+    height: 32px;
+}
+
+.openMenuIcon{
+    width: 32px;
+    height: 32px;
+}
+
+
+/* Navbar button display logic applies on toggle of class #header.menu-expanded */
+
+.menuExpanded .navX {
+    display: inherit;
+}
+
+
+
+.menuExpanded .navHamburger {
+    display: none;
+}
+
+
+
+/* Nav menu overlay
+hidden by default, visible when #header.menu-expanded */
+
+.navmenu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    transition: left 0.4s ease-in-out;
+    will-change: left;
+    overflow: hidden;
+    top: 4.5rem;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.menuExpanded .navmenu {
+    display: inherit;
+    left: 0;
+}
+
+/* Nav menu styling*/
+
+.navmenu ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navmenu ul li a {
+    display: block;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}

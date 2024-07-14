@@ -1,395 +1,76 @@
 /* General */
 @font-face {
-  font-family: "Cheddar";
-  src: url('../lib/fonts/CheddarGothicRough-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Cheddar";
+    src: url('../lib/fonts/CheddarGothicRough-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
 :root {
-  font-size: 30px;
-  font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-family: 'Cheddar', sans-serif;
+    background-color: black;
+    text-transform: lowercase;
+    color: white;
 }
 
-body {
-  font-size: 0.6rem;
-  min-height: 100vh;
-  font-family: 'Cheddar', sans-serif;
-  font-weight: normal;
-  background-color: black;
-  text-transform: lowercase;
-  color: white;
+#__next {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 1fr;
+    align-items: center;
+    grid-template-areas:
+          'header'
+          'main';
 }
-
-
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 
 h1, h2 {
-  color: #E939B4;
-  font-size: 1.5rem;
-  font-weight: normal;
-  margin-bottom: 0.5rem;
+    color: #E939B4;
+    font-size: 1.5rem;
+    font-weight: normal;
 }
-
-
-h2 {
-  margin-bottom: 0.5rem;
-  margin-top: 0.7rem;
-  text-align: center;
-}
-
 
 a {
-  text-decoration: none;
-  color: #E939B4;
+    text-decoration: none;
+    color: #E939B4;
 }
 
 button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 /* Don't make content of buttons and links clickable by them self */
 button *, a * {
-  pointer-events: none;
-}
-
-/* Layout */
-body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: [start header-start] minmax(2rem, max-content) auto [header-end main-start] 1fr [main-end footer-start] auto [end footer-end];
-
-}
-
-body > main {
-  grid-row-end: -2;
-}
-
-body > footer {
-  grid-row-start: -2;
-}
-
-/* Navigation */
-
-nav {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  padding: 50px;
-}
-
-nav a {
-  color: white;
-  font-family: Cheddar, sans-serif;
-  font-size: 1.5rem;
-  overflow: hidden;
-}
-
-nav a.active {
-  color: #E939B4;
-}
-
-nav > div.buttons {
-  grid-row-start: 1;
-  grid-column-start: 1;
-  display: grid;
-}
-
-nav button object {
-  width: 1.5rem;
-  height: 1.5rem;
-
-}
-
-#nav-home {
-  text-align: center;
-  grid-row-start: 1;
-  grid-column-start: 2
-
-}
-
-#close-menu-icon {
-  width: 32px;
-  height: 32px;
-}
-
-#menu-icon{
-  width: 32px;
-  height: 32px;
-}
-
-
-/* Navbar button display logic applies on toggle of class #header.menu-expanded */
-
-.menu-expanded #nav-x {
-  display: inherit;
-}
-
-nav #nav-x {
-  display: none;
-}
-
-.menu-expanded #nav-hamburger {
-  display: none;
-}
-
-nav #nav-hamburger {
-  display: grid;
-}
-
-/* Nav menu overlay
-hidden by default, visible when #header.menu-expanded */
-
-.menu-expanded {
-  width: 100%;
-  height: 100%;
-  background: black;
-  z-index: 10;
-
-}
-
-.navmenu {
-  position: fixed;
-  width: 100%;
-  left: -100%;
-  top: 3rem;
-  grid-area: 2 / 1 / 2 / 4;
-  transition: left 0.3s ease-in-out;
-  will-change: left;
-  overflow: hidden;
-}
-
-.menu-expanded .navmenu {
-  left: 0;
-}
-
-.menu-expanded .navmenu {
-  display: inherit;
-}
-
-/* Nav menu styling*/
-
-.navmenu ul {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2.157rem;
-
-}
-
-.navmenu ul li a {
-  display: block;
-  padding: 0.5rem;
-  font-size: 1.5rem;
+    pointer-events: none;
 }
 
 /* Content */
 
 #content {
-  margin-top: 0.5rem;
-}
-
-main {
-  font-size: 1.5rem;
-}
-
-#amount-left {
-  font-size: 1rem;
-}
-
-#date {
-  font-size: 2rem;
-}
-
-main .entry {
-  text-align: center;
-}
-
-main p {
-  text-align: center;
-  line-height: 1.5;
-  margin: 0 0 1rem 0;
-}
-
-button#join {
-  background-color: #E939B4;
-  border: none;
-  color: white;
-  padding: 0.3rem 1.7rem 0.3rem 1.7rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2rem;
-  margin: 2rem;
-  font-family: Cheddar, sans-serif;
-  border-radius: 0.2rem;
-}
-
-/* Footer */
-
-.entries {
-  margin-bottom: 3.5rem;
-}
-
-body > footer {
-  padding: .6rem 0;
-}
-
-body > footer > div {
-  text-align: center;
-  justify-self: center;
-}
-
-#social a {
-  display: inline-block;
+    margin-top: 0.5rem;
 }
 
 
-/* Now for large screens
-    General */
 
-@media only screen and (min-width: 768px) {
-
-
-  body>div {
-    grid-template-columns:  [start] 14vw [content-start] auto [content-end] 14vw [end];
-  }
-
-  main p {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  body > header, body > footer {
-    grid-column: 1 / -1
-  }
-
-
-  body > main {
-    grid-column: content-start / content-end;
-    display: grid;
-    grid-template-columns:  1fr;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1rem;
-    align-content: start;
-
-    /* add this for ie 11 and then copy the whole css code to https://autoprefixer.github.io/ and repaste the result in this file if you want ie support  */
-    /* grid-template-rows: 1fr 1fr; */
-
-    align-items: flex-start;
-
-  }
-
-  main > .entry.width-2 {
-    grid-column-end: span 2;
-  }
-
-  body > .entry.width-full {
-    grid-column: 1 / -1;
-  }
-
-
-  #home-image h1 {
-    padding-left: 20vw;
-  }
-
-  /*Navbar*/
-  div.buttons {
-    display: none;
-  }
-
-  #nav-home {
-    text-align: unset;
-  }
-
-  nav {
-    grid-template-columns: 14vw [left] 1fr [center] 1fr [right] 14vw;
-  }
-
-  .navmenu {
-    position: absolute;
-    right: -100%;
-    display: inherit;
-    grid-row: 1 / 1;
-    grid-column: center / right;
-  }
-
-  /* Nav menu now also inside bar*/
-  .navmenu ul {
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-top: unset;
-
-  }
-
-  .navmenu ul li a {
-    display: block;
-    padding: 0 0.5rem;
-    font-size: 1rem;
-    color: white;
-  }
-
-  /* Footer */
-  body > footer {
-    grid-template-columns:  [start] 14vw [content-start] 1fr [center] 1fr [content-end] 14vw [end];
-  }
-
-  #social {
-    grid-column: content-start / center;
-    justify-self: left;
-  }
-
-  #legal {
-    grid-column: center / content-end;
-    justify-self: right;
-
-  }
-
-  .buttons {
-    display: none!important;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-
-  body>div {
-    grid-template-columns:  [start] 20vw [content-start] auto [content-end] 20vw [end];
-  }
-
-  nav {
-    grid-template-columns: 20vw [left] 1fr [center] 1fr [right] 20vw;
-  }
-
-  body > footer {
-    grid-template-columns:  [start] 20vw [content-start] 1fr [center] 1fr [content-end] 20vw [end];
-  }
-
-
-  #home-image h1 {
-    padding-left: 25vw;
-  }
-
-}
 
 /* At the end to rule them all */
 .hidden {
-  display: none;
+    display: none;
 }

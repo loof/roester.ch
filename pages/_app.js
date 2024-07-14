@@ -11,11 +11,7 @@ export default function App({Component, pageProps}) {
     const {isLoaded, isSignedIn} = useSession()
     useAuthRedirect(pageProps)
 
-    useEffect(() => {
-        window.addEventListener('resize', function(event){
-            document.getElementById("header").classList.remove("menu-expanded");
-        });
-    }, []);
+
 
     return isLoaded && (
         <>
@@ -26,9 +22,11 @@ export default function App({Component, pageProps}) {
             {
                 <Header/>}
 
-            <main className={`page`}>
+
                 {(!pageProps.secured || isSignedIn) && <Component {...pageProps}/>}
-            </main>
+
+
+            {/*<footer className={`footer`}>hello</footer>*/}
         </>
     )
 }

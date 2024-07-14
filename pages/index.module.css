@@ -2,3 +2,29 @@
     color: #E939B4;
     font-size: 2rem;
 }
+
+.main {
+    grid-area: main;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr 4rem;
+    text-align: center;
+    align-items: start;
+    font-size: 1.5rem;
+    padding-top: 4rem;
+}
+
+.join {
+    background-color: #E939B4;
+    border: none;
+    color: white;
+    padding: 0.3rem 1.7rem 0.3rem 1.7rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Cheddar, sans-serif;
+    border-radius: 0.2rem;
+    width: calc(100vw - 2rem);
+    max-width: 500px;
+}

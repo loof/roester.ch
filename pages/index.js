@@ -36,19 +36,24 @@ export default function IndexPage() {
 
     return (
         <>
-            {isLoading === false && data.id && data.id > 0 &&
-                <article className="entry width-full">
-                    <h1>nächste röstung</h1> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
-                    <p id="date">
-                        <time dateTime="2024-09-14">{formatDate(data.date)}</time>
-                    </p>
-                    <p id="amount-left">{data.amountLeft} kg vorrat</p>
-                    <button id="join">join</button>
-                </article>}
+            <main className={styles.main}>
+                {isLoading === false && data.id && data.id > 0 &&
+                    <>
 
-            {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}
+                        <article>
+                            <h1>nächste röstung</h1> <p>in <span className={styles.accent}>{diffDays}</span> Tagen</p>
+                            <p className="date">
+                                <time dateTime="2024-09-14">{formatDate(data.date)}</time>
+                            </p>
+                            <p className="amount-left">{data.amountLeft} kg vorrat</p>
+                        </article>
+                        <button className={styles.join}>join</button>
+                    </>}
 
-            {isLoading === true && <p>Loading...</p>}
+                {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}
+
+                {isLoading === true && <p>Loading...</p>}
+            </main>
         </>
     )
 }
