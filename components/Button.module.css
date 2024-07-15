@@ -1,0 +1,22 @@
+.button {
+    background-color: #E939B4;
+    border: none;
+    color: white;
+    padding: 0.3rem 1.7rem 0.3rem 1.7rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: Cheddar, sans-serif;
+    border-radius: 0.2rem;
+}
+
+.small {
+    font-size: 0.5rem;
+}
+
+.medium {
+    font-size: 1rem;
+}
+
+.big {
+    font-size: 2rem;
+}

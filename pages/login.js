@@ -3,6 +3,7 @@ import { useSession } from "@/lib/hooks/session"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import styles from "./login.module.css"
+import Button from "@/components/Button";
 
 const defaultModel = {
     email: "",
@@ -97,9 +98,9 @@ export default function LoginPage() {
                 </fieldset>
 
                 <fieldset>
-                    <button disabled={isLoading} type="submit">
+                    <Button disabled={isLoading} type="submit" size="medium">
                         {isLoading ? "Loading..." : "Login"}
-                    </button>
+                    </Button>
                 </fieldset>
             </form>
         </div>

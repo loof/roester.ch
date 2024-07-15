@@ -1,11 +1,14 @@
 import styles from "./Header.module.css"
 import Link from "next/link";
 import {useEffect, useState} from "react";
+import {useSession} from "@/lib/hooks/session";
+import { useRouter } from 'next/navigation'
 
 export default function Header({children}) {
     const [isMenuExpanded, setIsMenuExpanded] = useState(false);
     const menuClassname = isMenuExpanded ? `${styles["menuExpanded"]} ${styles["header"]}` : `${styles["header"]}`;
-
+    const { session, signOut } = useSession()
+    const router = useRouter()
     const toggleMenuExpanded = () => {
         setIsMenuExpanded(!isMenuExpanded)
     }
@@ -15,6 +18,13 @@ export default function Header({children}) {
             setIsMenuExpanded(false)
         });
     }, []);
+
+    const handleLogout = async (e) => {
+        e.preventDefault()
+        signOut()
+        setIsMenuExpanded(false)
+        await router.push("/")
+    }
 
     return (
         <header className={menuClassname}>
@@ -42,7 +52,7 @@ export default function Header({children}) {
                     <ul>
                         <li><Link href="/" className={styles.active}>Nächste Röstung</Link></li>
                         <li><Link href="/profile">Profil</Link></li>
-                        <li><Link href="/logout">Logout</Link></li>
+                        <li><Link onClick={handleLogout} href=" ">Logout</Link></li>
                     </ul>
                 </div>
 
