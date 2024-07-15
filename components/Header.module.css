@@ -98,3 +98,30 @@ hidden by default, visible when #header.menu-expanded */
     padding: 0.5rem;
     font-size: 1.5rem;
 }
+
+@media only screen and (min-width: 768px) {
+    .navmenu {
+        position: static;
+        grid-row: 1/1;
+        grid-column: 2/ span 2;
+    }
+
+    .navmenu ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .navmenu ul li a {
+        font-size: 1rem;
+    }
+
+    .buttons {
+        display: none !important;
+    }
+
+    .navHome {
+        grid-row: 1/1;
+        grid-column: 1 / span 1;
+        text-align: end;
+    }
+}
