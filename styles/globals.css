@@ -71,3 +71,7 @@ button *, a * {
 .hidden {
     display: none;
 }
+
+a:hover {
+    color: #E939B4;
+}
