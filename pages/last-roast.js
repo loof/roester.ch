@@ -1,11 +1,11 @@
 import {formatDate} from "@/lib/util/formatDate"
 import {useEffect, useState} from "react"
 import styles from "./index.module.css"
-import {getNextEvent} from "@/lib/api/events";
+import {getLastEvent, getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
 
 
-export default function IndexPage() {
+export default function LastRoastPage() {
     const [data, setData] = useState({})
     const {session, isLoaded} = useSession()
     const [isLoading, setLoading] = useState(true)
@@ -13,7 +13,7 @@ export default function IndexPage() {
     useEffect(() => {
         const loadNextEvent = async () => {
             try {
-                const event = await getNextEvent()
+                const event = await getLastEvent()
                 setData(event)
             } catch (e) {
                 alert("Could not load next event!")
@@ -41,13 +41,11 @@ export default function IndexPage() {
                     <>
 
                         <article>
-                            <h1>nächste röstung</h1> <p>in <span className={styles.accent}>{diffDays}</span> {diffDays > 1 ? "Tagen" : "Tag"}</p>
+                            <h1>letzte röstung</h1> <p>war vor <span className={styles.accent}>{diffDays}</span> Tagen</p>
                             <p className={styles.date}>
-                                <time dateTime="2024-09-14">{formatDate(data.date)}</time>
+                                <time dateTime={data.date}>{formatDate(data.date)}</time>
                             </p>
-                            <p>{data.amountLeft} kg vorrat</p>
                         </article>
-                        <button className={styles.join}>reservieren</button>
                     </>}
 
                 {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}

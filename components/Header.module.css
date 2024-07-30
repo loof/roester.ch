@@ -33,6 +33,11 @@
     grid-column-start: 2
 }
 
+.navLogin {
+    grid-column-start: 2;
+    text-align: center;
+}
+
 .nav .navX {
     display: none;
 }
@@ -132,4 +137,5 @@ hidden by default, visible when #header.menu-expanded */
         grid-column: 1 / span 1;
         text-align: end;
     }
+
 }

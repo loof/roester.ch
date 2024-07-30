@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import styles from "./login.module.css"
 import Button from "@/components/Button";
+import Link from "next/link";
 
 const defaultModel = {
     email: "",
@@ -18,12 +19,12 @@ function validateModel(model) {
     let isValid = true
 
     if (model.email.trim().length === 0 || !model.email.includes("@")) {
-        errors.email = "Email can't be empty and must be valid email"
+        errors.email = "Die E-Mail-Adresse muss gültig sein und darf nicht leer sein."
         isValid = false
     }
 
     if (model.password.trim().length === 0 || model.password.length < 7) {
-        errors.password = "Password can't be empty and must be at least 8 characters long"
+        errors.password = "Passwort darf nicht leer sein und muss mindestens 8 Zeichen beinhalten."
         isValid = false
     }
 
@@ -72,11 +73,12 @@ export default function LoginPage() {
         } catch (e) {
             setErrors({
                 ...errors,
-                login: "Login failed"
+                login: "Login fehlgeschlagen"
             })
             setIsLoading(false)
         }
     }
+
 
     return session.user ? null : (
         <div className={styles.login}>
@@ -98,8 +100,11 @@ export default function LoginPage() {
                 </fieldset>
 
                 <fieldset>
-                    <Button disabled={isLoading} type="submit" size="medium">
+                    <Button filled={true} disabled={isLoading} type="submit" size="medium">
                         {isLoading ? "Loading..." : "Login"}
+                    </Button>
+                    <Button onClick={() => {router.push("/register")}} filled={false} disabled={isLoading} type="button" size="medium">
+                        <Link href={"/register"} >{isLoading ? "Loading..." : "Registrieren"}</Link>
                     </Button>
                 </fieldset>
             </form>

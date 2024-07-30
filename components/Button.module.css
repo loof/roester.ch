@@ -1,5 +1,5 @@
 .button {
-    background-color: #E939B4;
+    background-color: transparent;
     border: none;
     color: white;
     padding: 0.3rem 1.7rem 0.3rem 1.7rem;
@@ -7,6 +7,9 @@
     text-decoration: none;
     font-family: Cheddar, sans-serif;
     border-radius: 0.2rem;
+    text-transform: lowercase;
+
+    margin-top: 1rem;
 }
 
 .small {
@@ -19,4 +22,12 @@
 
 .big {
     font-size: 2rem;
+}
+
+.filled {
+    background-color: #E939B4 !important;
+}
+
+.bordered {
+    border: 1px solid #E939B4;
 }

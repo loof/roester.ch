@@ -5,15 +5,15 @@
     align-items: center;
 }
 
+.loginform input {
+    font-size: 0.5rem;
+}
+
 .error {
     margin-top: 0.5em;
     font-size: 0.8rem;
     color: #E939B4;
 
-}
-
-.loginform input {
-    font-size: 0.5rem;
 }
 
 .login form {

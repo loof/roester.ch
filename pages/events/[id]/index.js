@@ -1,7 +1,6 @@
-import {useRedirectToLogin} from "@/lib/hooks/authredirect"
 
 
-export default function EventsPage({session}) {
+export default function EventDetailPage({session}) {
     return (
         <>
             Hello

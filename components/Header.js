@@ -3,15 +3,17 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 import {useSession} from "@/lib/hooks/session";
 import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 export default function Header({children}) {
     const [isMenuExpanded, setIsMenuExpanded] = useState(false);
     const menuClassname = isMenuExpanded ? `${styles["menuExpanded"]} ${styles["header"]}` : `${styles["header"]}`;
-    const { session, signOut } = useSession()
+    const { session, signOut, isSignedIn } = useSession()
     const router = useRouter()
     const toggleMenuExpanded = () => {
         setIsMenuExpanded(!isMenuExpanded)
     }
+    const pathname = usePathname()
 
     useEffect(() => {
         window.addEventListener('resize', function (event) {
@@ -26,6 +28,8 @@ export default function Header({children}) {
         await router.push("/")
     }
 
+
+    console.log(router.query)
     return (
         <header className={menuClassname}>
             <nav className={styles.nav}>
@@ -50,9 +54,11 @@ export default function Header({children}) {
 
                 <div className={styles.navmenu}>
                     <ul>
-                        <li><Link href="/" className={styles.active}>Nächste Röstung</Link></li>
-                        <li><Link href="/profile">Profil</Link></li>
-                        <li><Link onClick={handleLogout} href=" ">Logout</Link></li>
+                        <li><Link href="/last-roast" className={pathname === "/last-roast" ? styles.active : ""}>Letzte
+                            Röstung</Link></li>
+                        <li><Link href="/" className={pathname === "/" ? styles.active : ""}>Nächste Röstung</Link></li>
+                        {isSignedIn && <li><Link href="/profile">Profil</Link></li>}
+                        {isSignedIn && <li><Link onClick={handleLogout} href="">Logout</Link></li>}
                     </ul>
                 </div>
 
