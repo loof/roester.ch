@@ -3,6 +3,7 @@ import {useEffect, useState} from "react"
 import styles from "./index.module.css"
 import {getLastEvent, getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
+import Varieties from "@/components/Varieties";
 
 
 export default function LastRoastPage() {
@@ -11,15 +12,15 @@ export default function LastRoastPage() {
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
-        const loadNextEvent = async () => {
+        const loadData = async () => {
             try {
                 const event = await getLastEvent()
                 setData(event)
             } catch (e) {
-                alert("Could not load next event!")
+                alert("Die letzte Röstung konnte nicht geladen werden. Bitte versuche es erneut.")
             }
         }
-        loadNextEvent()
+        loadData()
     }, [])
 
     useEffect(() => {
@@ -45,10 +46,11 @@ export default function LastRoastPage() {
                             <p className={styles.date}>
                                 <time dateTime={data.date}>{formatDate(data.date)}</time>
                             </p>
+                            <Varieties eventProductAmount={data.eventProductAmounts}/>
                         </article>
                     </>}
 
-                {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}
+                {isLoading === false && data.id === null && <p>Zurzeit sind keine Röstungen geplant.</p>}
 
                 {isLoading === true && <p>Loading...</p>}
             </main>

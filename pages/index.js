@@ -3,6 +3,8 @@ import {useEffect, useState} from "react"
 import styles from "./index.module.css"
 import {getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
+import AmountLeft from "@/components/AmountLeft";
+import Varieties from "@/components/Varieties";
 
 
 export default function IndexPage() {
@@ -11,15 +13,15 @@ export default function IndexPage() {
     const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
-        const loadNextEvent = async () => {
+        const loadData = async () => {
             try {
                 const event = await getNextEvent()
                 setData(event)
             } catch (e) {
-                alert("Could not load next event!")
+                alert("Die nächste Röstung konnte nicht geladen werden. Bitte versuche es erneut.")
             }
         }
-        loadNextEvent()
+        loadData()
     }, [])
 
     useEffect(() => {
@@ -34,28 +36,34 @@ export default function IndexPage() {
 
     const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 
-    return (
-        <>
+    return (<>
             <main className={styles.main}>
-                {isLoading === false && data.id && data.id > 0 &&
-                    <>
+                {isLoading === false && data.id && data.id > 0 && <>
 
-                        <article>
-                            <h1>nächste röstung</h1> <p>in <span className={styles.accent}>{diffDays}</span> {diffDays > 1 ? "Tagen" : "Tag"}</p>
-                            <p className={styles.date}>
-                                <time dateTime="2024-09-14">{formatDate(data.date)}</time>
-                            </p>
-                            <p>{data.amountLeft} kg vorrat</p>
-                        </article>
-                        <button className={styles.join}>reservieren</button>
-                    </>}
+                    <article>
+                        <h1>Nächste Röstung</h1> <p>in <span
+                        className={styles.accent}>{diffDays > 1 ? diffDays : "einem"}</span> {diffDays > 1 ? "Tagen" : "Tag"}
+                    </p>
+                        <p className={styles.date}>
+                            <time dateTime={data.date}>{formatDate(data.date)}</time>
+                        </p>
+                        {(data.eventProductAmounts && data.eventProductAmounts.length > 0) && <>
+                            <Varieties eventProductAmount={data.eventProductAmounts}/>
+                            <AmountLeft eventProductAmount={data.eventProductAmounts[0]}/>
+                        </>
+
+
+                        }
+
+                    </article>
+                    <button className={styles.join}>reservieren</button>
+                </>}
 
                 {isLoading === false && data.id === null && <p>zurzeit sind keine röstungen geplant</p>}
 
                 {isLoading === true && <p>Loading...</p>}
             </main>
-        </>
-    )
+        </>)
 }
 
 export async function getStaticProps(context) {
