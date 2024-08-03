@@ -124,9 +124,6 @@ hidden by default, visible when #header.menu-expanded */
         margin-bottom: 0;
     }
 
-    .navmenu ul li a {
-        font-size: 1rem;
-    }
 
     .buttons {
         display: none !important;

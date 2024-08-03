@@ -1,7 +1,7 @@
 import styles from "@/components/Button.module.css";
 
 
-export default function Button({onClick, size, disabled, type, children, filled}) {
+export default function Button({onClick, size = "medium", disabled, type = "button", children, filled}) {
     const classNames = `${styles[size]} ${styles.button} ${filled ? styles.filled : styles.bordered}`;
 
     return (
