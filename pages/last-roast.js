@@ -4,6 +4,8 @@ import styles from "./index.module.css"
 import {getLastEvent, getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
 import Varieties from "@/components/Varieties";
+import Button from "@/components/Button";
+import Link from "next/link";
 
 
 export default function LastRoastPage() {
@@ -47,6 +49,7 @@ export default function LastRoastPage() {
                                 <time dateTime={data.date}>{formatDate(data.date)}</time>
                             </p>
                             <Varieties eventProductAmount={data.eventProductAmounts}/>
+                            <Link href={`/events/${data.id}`}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
                         </article>
                     </>}
 
