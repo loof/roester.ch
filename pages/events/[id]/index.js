@@ -2,6 +2,8 @@ import { useRouter } from "next/router"
 import {useEffect, useState} from "react";
 import {getEventById} from "@/lib/api/events";
 import {formatDate} from "@/lib/util/formatDate";
+import styles from "./index.module.css"
+
 
 
 export default function EventDetailPage({session}) {

@@ -9,11 +9,11 @@ export default function Varieties({eventProductAmount}) {
                 //Mapping over subproducts and display percentage of either robusta or arabica.
                 <p>{eventProductAmount[0].product.madeOf.map((p, i) => {
                     return (<><span
-                        className={styles.accent}>{p.amount}%</span> {p.part.properties.find((property) => property.name === "variety").description}{i !== eventProductAmount[0].product.madeOf.length - 1 &&
+                        className={styles.accent}>{p.amount}%</span> {p.part.tags.find((tag) => tag.name === "Arabica" || tag.name === "Robusta").name}{i !== eventProductAmount[0].product.madeOf.length - 1 &&
                         <br/>}</>)
                 })}
                 </p> : <p> <span
-                    className={styles.accent}>100%</span> {eventProductAmount[0].product.properties.find((p) => {return p.name === "variety"}).description}
+                    className={styles.accent}>100%</span> {eventProductAmount[0].product.tags.find((tag) => {return tag.name === "Arabica" || tag.name === "Robusta"}).name}
                 </p>
 
 
