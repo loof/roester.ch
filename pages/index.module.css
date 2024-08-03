@@ -6,10 +6,7 @@
 .main {
     grid-area: main;
     height: 100%;
-    display: grid;
-    justify-content: center;
     text-align: center;
-    align-items: start;
     font-size: 1.5rem;
     padding-top: 0.8rem;
 }

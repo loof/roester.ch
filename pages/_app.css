@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 
 @font-face {
     font-family: "Cheddar";
@@ -7,12 +7,17 @@
     font-style: normal;
 }
 
-
-.main {
-    grid-area: main;
+@font-face {
+    font-family: "Montserrat";
+    src: url('../lib/fonts/Montserrat-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
+
+
 
 .footer {
     grid-area: footer;
 }
+
 
