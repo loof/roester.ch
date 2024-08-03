@@ -1,9 +1,8 @@
 import {formatDate} from "@/lib/util/formatDate"
 import {useEffect, useState} from "react"
-import styles from "./index.module.css"
+import styles from "../next-roast/index.module.css"
 import {getLastEvent, getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
-import Varieties from "@/components/Varieties";
 import Button from "@/components/Button";
 import Link from "next/link";
 
@@ -48,8 +47,8 @@ export default function LastRoastPage() {
                             <p className={styles.date}>
                                 <time dateTime={data.date}>{formatDate(data.date)}</time>
                             </p>
-                            <Varieties eventProductAmount={data.eventProductAmounts}/>
-                            <Link href={`/events/${data.id}`}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
+
+                            <Link href={`/last-roast/info`}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
                         </article>
                     </>}
 

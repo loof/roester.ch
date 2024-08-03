@@ -4,12 +4,11 @@ import styles from "./index.module.css"
 import {getNextEvent} from "@/lib/api/events";
 import {useSession} from "@/lib/hooks/session";
 import AmountLeft from "@/components/AmountLeft";
-import Varieties from "@/components/Varieties";
 import Button from "@/components/Button";
 import Link from "next/link";
 
 
-export default function IndexPage() {
+export default function NextRoastPage() {
     const [data, setData] = useState({})
     const {session, isLoaded} = useSession()
     const [isLoading, setLoading] = useState(true)
@@ -50,7 +49,7 @@ export default function IndexPage() {
                         <time dateTime={data.date}>{formatDate(data.date)}</time>
                     </p>
                     {(data.eventProductAmounts && data.eventProductAmounts.length > 0) && <>
-                        <Varieties eventProductAmount={data.eventProductAmounts}/>
+
                         <AmountLeft eventProductAmount={data.eventProductAmounts[0]}/>
                     </>
 
@@ -58,7 +57,7 @@ export default function IndexPage() {
                     }
 
                     <div className={styles.buttons}>
-                        <Link href={`/events/${data.id}`}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
+                        <Link href={`/next-roast/info`}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
                         <Link href={`/events/${data.id}/reserve`}><Button filled={true}
                                                                           size={"big"}>Reservieren</Button></Link>
                     </div>

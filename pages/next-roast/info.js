@@ -1,30 +1,27 @@
-import {useRouter} from "next/router"
 import {useEffect, useState} from "react";
-import {getEventById} from "@/lib/api/events";
 import {formatDate} from "@/lib/util/formatDate";
-import styles from "./index.module.css"
+import styles from "./info.module.css"
 import Link from "next/link";
 import Button from "@/components/Button";
 import Properties from "@/components/Properties";
+import {getNextEvent} from "@/lib/api/events";
+import {router} from "next/client";
 
 
 export default function EventDetailPage({session}) {
-    const router = useRouter()
     const [data, setData] = useState(null)
 
-    const {id} = router.query
     useEffect(() => {
-        if (!id) return
         const loadData = async () => {
             try {
-                const event = await getEventById(id)
+                const event = await getNextEvent()
                 setData(event)
             } catch (e) {
                 if (e.status === 404) router.push("/404")
             }
         }
         loadData()
-    }, [id])
+    }, [])
 
 
     return (data && <>

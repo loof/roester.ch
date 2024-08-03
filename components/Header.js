@@ -54,9 +54,9 @@ export default function Header({children}) {
 
                 <div className={styles.navmenu}>
                     <ul>
-                        <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/last-roast" className={pathname === "/last-roast" ? styles.active : ""}>Letzte
+                        <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/last-roast" className={pathname.startsWith("/last-roast") ? styles.active : ""}>Letzte
                             Röstung</Link></li>
-                        <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/" className={pathname === "/" ? styles.active : ""}>Nächste Röstung</Link></li>
+                        <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/next-roast" className={pathname.startsWith("/next-roast") ? styles.active : ""}>Nächste Röstung</Link></li>
                         {isSignedIn && <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/profile">Profil</Link></li>}
                         {isSignedIn && <li><Link onClick={handleLogout} href="#">Logout</Link></li>}
                     </ul>
