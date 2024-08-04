@@ -29,7 +29,6 @@ export default function Header({children}) {
     }
 
 
-    console.log(router.query)
     return (
         <header className={menuClassname}>
             <nav className={styles.nav}>
