@@ -7,7 +7,7 @@ import {v4 as uuidv4} from 'uuid';
 import {useRouter} from "next/router";
 import Image from 'next/image'
 
-export default function Info({data, isBookable = false}) {
+export default function Info({data, isBookable = false, bookingLink = "/next-roast/reserve"}) {
 
     const router = useRouter();
 
@@ -44,7 +44,7 @@ export default function Info({data, isBookable = false}) {
                 </>)
             })}
 
-            {isBookable && <Link href={`/events/${data.id}/reserve`}><Button filled={true}
+            {isBookable && <Link href={bookingLink}><Button filled={true}
                                                                              size={"big"}>Reservieren</Button></Link>}
         </main>
     </>)

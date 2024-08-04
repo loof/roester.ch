@@ -15,6 +15,10 @@ export default function Header({children}) {
     }
     const pathname = usePathname()
 
+    const showSettings =  (event) => {
+
+    }
+
     useEffect(() => {
         window.addEventListener('resize', function (event) {
             setIsMenuExpanded(false)
@@ -29,9 +33,11 @@ export default function Header({children}) {
     }
 
 
+
+
     return (
-        <header className={menuClassname}>
-            <nav className={styles.nav}>
+      <header className={menuClassname}>
+          <nav className={styles.nav}>
 
                 <div className={styles.buttons}>
                     <button className={styles.navHamburger} onClick={toggleMenuExpanded} aria-haspopup="true" aria-expanded={isMenuExpanded}><span aria-hidden={!isMenuExpanded}><object
@@ -58,10 +64,14 @@ export default function Header({children}) {
                         <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/next-roast" className={pathname.startsWith("/next-roast") ? styles.active : ""}>Nächste Röstung</Link></li>
                         {isSignedIn && <li><Link onClick={() => {setIsMenuExpanded(false)}} href="/profile">Profil</Link></li>}
                         {isSignedIn && <li><Link onClick={handleLogout} href="#">Logout</Link></li>}
+                        {!isSignedIn && <li><Link href="/login">Login</Link></li>}
                     </ul>
                 </div>
 
             </nav>
+
+
         </header>
+
     )
 }
