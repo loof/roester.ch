@@ -26,7 +26,7 @@ export default function NextRoastPage() {
 
     return (<>
         <Overview isBookable={true} data={data} isLoading={isLoading} prefix={"in"} title={"Nächste Röstung"}
-                  showAmountLeft={true} infoLink="/next-roast/info"/>
+                  showAmountLeft={true} infoLink="/next-roast/info" reserveLink="/next-roast/reserve"/>
     </>)
 }
 

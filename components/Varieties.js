@@ -1,5 +1,6 @@
 import styles from "@/components/Varieties.module.css";
 
+
 export default function Varieties({eventProductAmount}) {
 
     return (

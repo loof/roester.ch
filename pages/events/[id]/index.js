@@ -6,6 +6,7 @@ import styles from "./index.module.css"
 import Link from "next/link";
 import Button from "@/components/Button";
 import Properties from "@/components/Properties";
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default function EventDetailPage({session}) {
@@ -24,7 +25,7 @@ export default function EventDetailPage({session}) {
             }
         }
         loadData()
-    }, [id])
+    }, [id, router])
 
 
     return (data && <>
@@ -33,13 +34,13 @@ export default function EventDetailPage({session}) {
                 {data.description && <p>{data.description && (data.description)}</p>}
                 {data.eventProductAmounts.map((epa, i) => {
                     return (<>
-                               <h2 key={i}>{epa.product.madeOf && epa.product.madeOf.length === 0 ? `100% ${epa.product.tags.find(t => {return t.name === "Arabica" || t.name === "Robusta"}).name} ` : ""}{epa.product.name}</h2>
+                               <h2 key={uuidv4()}>{epa.product.madeOf && epa.product.madeOf.length === 0 ? `100% ${epa.product.tags.find(t => {return t.name === "Arabica" || t.name === "Robusta"}).name} ` : ""}{epa.product.name}</h2>
                             <p>{epa.product.description}</p>
 
                         {epa.product.madeOf && epa.product.madeOf.length > 0 && (
                             epa.product.madeOf.map((p, i) => {
                                 return <>
-                                    <h3 key={`${i}`}>{p.amount}% {p.part.name}</h3>
+                                    <h3 key={uuidv4()}>{p.amount}% {p.part.name}</h3>
                                     <p>{p.part.description}</p>
                                     {
                                         <Properties properties={p.part.properties}/>
@@ -52,8 +53,7 @@ export default function EventDetailPage({session}) {
                         )}
                     </>)
                 })}
-                <Link href={`/events/${data.id}/reserve`}><Button filled={true}
-                                                                  size={"big"}>Reservieren</Button></Link>
+
             </main>
         </>)
 

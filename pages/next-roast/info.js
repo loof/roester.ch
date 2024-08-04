@@ -19,7 +19,7 @@ export default function EventDetailPage({session}) {
         loadData()
     }, [router])
 
-    return (<Info data={data}/>)
+    return (<Info data={data} isBookable={true}/>)
 }
 
 

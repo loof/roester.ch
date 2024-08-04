@@ -5,8 +5,22 @@ import Button from "@/components/Button";
 import AmountLeft from "@/components/AmountLeft";
 import DiffDays from "@/components/DiffDays";
 
-export default function Overview({title, prefix, data, isLoading, isBookable = false, showAmountLeft = false, infoLink}) {
-
+export default function Overview({
+                                     title,
+                                     prefix,
+                                     data,
+                                     isLoading,
+                                     isBookable = false,
+                                     showAmountLeft = false,
+                                     infoLink,
+                                     reserveLink
+                                 }) {
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(data.id ? data.date : null);
+    const secondDate = new Date();
+    const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+    const isClosed = diffDays <= data.daysBeforeSubscriptionCloses
+    console.log(isClosed)
 
     return (<>
 
@@ -15,13 +29,13 @@ export default function Overview({title, prefix, data, isLoading, isBookable = f
 
                 <article>
                     <h1>{title}</h1>
-                    <DiffDays prefix={prefix} data={data} />
+                    <DiffDays prefix={prefix} data={data}/>
                     <p className={styles.date}>
                         <time dateTime={data.date}>{formatDate(data.date)}</time>
                     </p>
                     {(data.eventProductAmounts && data.eventProductAmounts.length > 0) && <>
 
-                    {showAmountLeft && <AmountLeft event={data}/>}
+                        {showAmountLeft && <AmountLeft event={data}/>}
                     </>
 
 
@@ -30,8 +44,10 @@ export default function Overview({title, prefix, data, isLoading, isBookable = f
                     <div className={styles.buttons}>
                         <Link href={infoLink}><Button filled={false} size={"big"}>Mehr Infos</Button></Link>
 
-                        {isBookable && <Link href={`/events/${data.id}/reserve`}><Button filled={true}
-                                                                                         size={"big"}>Reservieren</Button></Link>}
+                        {isBookable && !isClosed && <Link href={reserveLink}><Button filled={true}
+                                                                        size={"big"}>Reservieren</Button></Link>}
+
+                        {isClosed && <p>Reservation nicht mehr möglich</p>}
                     </div>
 
                 </article>
