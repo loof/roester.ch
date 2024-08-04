@@ -1,8 +1,8 @@
 
-export default function AmountLeft({eventProductAmount}) {
+export default function AmountLeft({event}) {
     return (
             <p>
-                {eventProductAmount.amountLeft} kg Vorrat
+                {event.amountLeft} kg Vorrat
             </p>
     )
 }

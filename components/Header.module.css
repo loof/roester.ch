@@ -17,6 +17,7 @@
     overflow: hidden;
 }
 
+
 .nav a.active {
     color: #E939B4;
     border-bottom: 1px dashed #E939B4;}
@@ -105,7 +106,7 @@ hidden by default, visible when #header.menu-expanded */
 
 .navmenu ul li {
     margin-bottom: 1rem;
-    list-style-type: square;
+    list-style-type: none;
 }
 
 @media only screen and (min-width: 768px) {
