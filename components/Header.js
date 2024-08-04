@@ -35,14 +35,14 @@ export default function Header({children}) {
             <nav className={styles.nav}>
 
                 <div className={styles.buttons}>
-                    <button className={styles.navHamburger} onClick={toggleMenuExpanded} aria-haspopup="true" aria-expanded="false"><span aria-hidden="true"><object
+                    <button className={styles.navHamburger} onClick={toggleMenuExpanded} aria-haspopup="true" aria-expanded={isMenuExpanded}><span aria-hidden={!isMenuExpanded}><object
                         className={styles.openMenuIcon} type="image/svg+xml" data="/menu.svg"
-                        title="Menu Icon">Menu</object>
+                        title="Open Menu">Menu</object>
                     </span></button>
-                    <button className={styles.navX} onClick={toggleMenuExpanded} aria-haspopup="true" aria-expanded="true"><span
-                        aria-hidden="true"> <object
+                    <button className={styles.navX} onClick={toggleMenuExpanded} aria-haspopup="true" aria-expanded={isMenuExpanded}><span
+                        aria-hidden={!isMenuExpanded}> <object
                         className={styles.closeMenuIcon} type="image/svg+xml" data="/close.svg"
-                        title="Close Meue Icon">Close
+                        title="Close Menu">Close
                             Menu
                         </object></span>
 

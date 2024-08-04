@@ -14,9 +14,7 @@ export default function Info({data, isBookable = false}) {
     return (data && <>
         <main className={styles.main}>
             <Link href="#" onClick={() => {router.back()}}>
-                <Button customStyles={{
-                    marginBottom: '1rem'
-                }} filled={false} size={"medium"} type={"button"}>zurück</Button>
+                <Button filled={false} size={"medium"} type={"button"}>zurück</Button>
             </Link>
 
             <h1>{`${data.name ? `${data.name} ` : ""}${formatDate(data.date)}`}</h1>
