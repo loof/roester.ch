@@ -22,7 +22,7 @@ export default function Info({data, isBookable = false}) {
             <h1>{`${data.name ? `${data.name} ` : ""}${formatDate(data.date)}`}</h1>
 
             {data.description && <p>{data.description && (data.description)}</p>}
-            {data.eventProductAmounts.map((epa, i) => {
+            {data.eventProductAmounts.map((epa) => {
                 return (<>
                     <h2 key={uuidv4()}>{epa.product.madeOf && epa.product.madeOf.length === 0 ? `100% ${epa.product.tags.find(t => {
                         return t.name === "Arabica" || t.name === "Robusta"
@@ -30,7 +30,7 @@ export default function Info({data, isBookable = false}) {
                     <p>{epa.product.description}</p>
 
                     {epa.product.madeOf && epa.product.madeOf.length > 0 && (
-                        epa.product.madeOf.map((p, i) => {
+                        epa.product.madeOf.map((p) => {
                             return <>
                                 <h3 key={uuidv4()}>{p.amount}% {p.part.name}</h3>
                                 <p>{p.part.description}</p>
